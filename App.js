@@ -26,7 +26,9 @@ export default class App extends Component {
         places: prevState.places.concat({
           key: Math.random(),
           name: placeName,
-          image: placeImage
+          image: {
+            uri: "https://c1.hiqcdn.com/photos/sh/shareiq-272-1408512090-332930-JPG-destreviewimages-720x512-1408512090-cropped.JPG"
+          }
         })
       };
     });
