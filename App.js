@@ -21,6 +21,7 @@ import placeImage from "./src/assets/golden_temple.jpg";
 class App extends Component {
   placeAddedHandler = placeName => {
     this.props.onAddPlace(placeName);
+    console.log('Place Added!');
   };
 
   placeDeletedHandler = () =>{
