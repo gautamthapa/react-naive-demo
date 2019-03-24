@@ -31,7 +31,9 @@ Navigation.registerComponent(
 
  Navigation.registerComponent(
   "reactdemo1.PlaceDetailScreen",
-  () => PlaceDetailScreen
+  () => PlaceDetailScreen,
+  store,
+  Provider
  )
 
 // Start a App
