@@ -77,3 +77,29 @@ const mapDispathchToProps = dispatch =>{
 };
 
 export default connect(mapStateToProps, mapDispathchToProps)(App);
+
+
+
+
+// ========================================================================
+state = {
+  respStyles: {
+      pwContainerDirection: "column",
+      pwContainerJustifyContent: "flex-start",
+      pwWrapperWidth: "100%"
+  }
+}
+
+constructor(props){
+  super(props);
+  Dimensions.addEventListener("change", dims => {
+      this.setState({
+          respStyles: {
+              pwContainerDirection: Dimensions.get('window').height > 500 ? "column" : "row",
+              pwContainerJustifyContent: Dimensions.get('window').height > 500 ? "flex-start" : "space-between",
+              pwWrapperWidth: Dimensions.get('window').height > 500 ? "100%" : "45%"
+          }
+      })
+  });
+}
+// ========================================================================
