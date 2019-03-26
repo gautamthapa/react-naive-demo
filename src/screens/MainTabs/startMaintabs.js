@@ -42,11 +42,17 @@ const startTabs = () => {
                     }
                 },
             ],
+            tabsStyle: {
+                tabBarSelectedButtonColor: "orange"
+            },
             drawer: {
                 left: {
                     screen: "reactdemo1.SideDrawer",
                 }
-            }
+            },
+            appStyle: {
+                tabBarSelectedButtonColor: "orange"
+            },
         });
     })
     

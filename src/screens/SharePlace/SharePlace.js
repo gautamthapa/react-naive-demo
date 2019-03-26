@@ -11,6 +11,11 @@ import PickLocation from '../../components/PickLocation/PickLocation';
 import imagePlaceholder from '../../assets/golden_temple.jpg';
 
 class SharePlaceScreen extends Component{
+
+    static navigatorStyle = {
+        navBarButtonColor: "orange"
+    }
+
     state = {
         placeName: ""
       };
