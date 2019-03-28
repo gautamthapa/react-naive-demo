@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, TextInput, StyleSheet, ImageBackground, Dimensions } from 'react-native';
+import { View, StyleSheet, ImageBackground, Dimensions, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
 
 import startMainTabs from '../MainTabs/startMaintabs';
@@ -142,13 +142,14 @@ class AuthScreen extends Component {
 
         return (
             <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container} behavior="padding">
                 {headingText}
                 <ButtonWithBackground 
                 color="#29aaf4" 
                 onPress={this.switchAuthModeHandler}>
                 Switch to {this.state.authMode === "login" ? "Sign Up" : "Log In"}
                 </ButtonWithBackground>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.inputContainer}>
                     <DefaultInput 
                     placeholder="Your Email Address"
@@ -183,6 +184,7 @@ class AuthScreen extends Component {
                     {confirmPasswordControl}
                     </View>
                 </View>
+                </TouchableWithoutFeedback>
                 <ButtonWithBackground 
                 color="#29aaf4" 
                 onPress={this.loginHandler}
@@ -192,7 +194,7 @@ class AuthScreen extends Component {
                     !this.state.controls.password.valid
                     }
                 >Submit</ButtonWithBackground>
-            </View>
+            </KeyboardAvoidingView>
             </ImageBackground>
         );
     }
