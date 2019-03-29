@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
-import { View, Text, Button, StyleSheet} from 'react-native';
+import { View, Text, Button, StyleSheet, Dimensions} from 'react-native';
+import MapView from 'react-native-maps';
 
 class PickLocation extends Component {
+
+    state = {
+        focusedLocaton: {
+        latitude: 37.7900352,
+        longitude: -122.4013726,
+        latitudeDelta: 0.0122,
+        longitudeDelta: 
+        Dimensions.get("window").width /
+        Dimensions.get("window").height *
+        0.0122
+        }
+    }
+
     render() {
         return(
             <View style={styles.container}>
-                <View style={styles.placeholder} >
-                    <Text>Map</Text>
-                </View>
+                <MapView
+                initialRegion={this.state.focusedLocaton}
+                style={styles.map}
+                >
+
+                </MapView>
                 <View style={styles.buttons}>
                     <Button title="Locate Me" />
                 </View>
@@ -21,12 +38,9 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center"
     },
-    placeholder: {
-        borderWidth: 1,
-        borderColor: "black",
-        backgroundColor: "#eee",
-        width: "80%",
-        height: 150
+    map: {
+        width: "100%",
+        height: 250
     },
     buttons: {
         margin: 8
